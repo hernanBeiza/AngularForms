@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<section id="encuesta">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h1>Encuesta</h1>
+        <p class="lead">Ejemplo de uso de componentes en formularios</p>
+        <div class="col">
+          
+          <form [formGroup]="miForm" (ngSubmit)="onSubmit(miForm.value)">    
+            <div class="form-row">
+
+              <app-estrellas formControlName="rating" [(ngModel)]="ratingModel"></app-estrellas>
+
+            </div>
+
+            <div class="form-row">
+              <button type="submit" class="btn btn-primary" [disabled]="!miForm.valid">Enviar</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

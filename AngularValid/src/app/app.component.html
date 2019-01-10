@@ -1,0 +1,31 @@
+<div class="container">
+  <div>
+    <h1>Login Form</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+
+      <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" class="form-control" formControlName="usuario" required>
+        <div *ngIf="formErrors.usuario" class="alert alert-danger"> {{ formErrors.usuario }} </div>
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" class="form-control" formControlName="contrasena" required>
+        <div *ngIf="formErrors.contrasena" class="alert alert-danger"> {{ formErrors.contrasena }} </div>
+      </div>
+      <div class="form-group">
+        <label for="hora">Tiempo de actividad</label>
+        <select id="hora" class="form-control" name="hora" formControlName="horas" required>
+          <option value="">Seleccione un tiempo de actividad</option>
+          <option *ngFor="let hora of horas" [ngValue]="hora.idhora">
+            {{hora.nombre}}
+          </option>
+        </select>
+        <div *ngIf="formErrors.horas" class="alert alert-danger"> {{ formErrors.horas }} </div>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="resetearme(); loginForm.reset()">Resetear</button>
+    </form>
+  </div>
+
+</div>
