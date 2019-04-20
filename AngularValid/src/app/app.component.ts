@@ -68,10 +68,14 @@ export class AppComponent implements OnInit {
 	}
 
 	public resetearme(): void {
+		this.loginForm.reset();
 		this.usuario = new Usuario();
 	}	
 
 	public onValueChanged(data?: any) {
+		
+		console.log(this.usuario);
+
 		if (!this.loginForm) { return; }
 		const form = this.loginForm;
 		for (const field in this.formErrors) {
